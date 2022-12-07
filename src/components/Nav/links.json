@@ -1,0 +1,12 @@
+{
+    "links": [
+        {
+            "label": "Products",
+            "href": "/prducts"
+        },
+        {
+            "label": "About",
+            "href": "/about"
+        }
+    ]
+}
