@@ -6,6 +6,10 @@
     margin: 0 40px;
 }
 
+.flex {
+    display: flex;
+}
+
 .products__flex {
     flex: 1;
     width: 100%;
