@@ -7,7 +7,7 @@ export default function Product({ ...props }): JSX.Element {
         <div className="product">
             <div className="product__img">
                 <img
-                    src={product.img}
+                    src="//cdn.shopify.com/s/files/1/0311/9398/9260/products/blurred_mesh_shirt_black_camisa_camisetas_2_720x720.jpg?v=1669835532"
                     alt={product.name}
                     width="300"
                 />
