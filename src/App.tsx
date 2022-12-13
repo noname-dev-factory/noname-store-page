@@ -6,7 +6,7 @@ import Products from "./components/Products/Products";
 function App() {
   return (
     <>
-      <Navabr/>
+      <Navabr />
       <div className="products">
         <Products />
       </div>
