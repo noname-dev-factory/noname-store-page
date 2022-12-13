@@ -1,0 +1,21 @@
+.homeScreen {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeScreen__bg {
+    height: 100%;
+    width: 100%;
+    background-image: url("https://cdn.shopify.com/s/files/1/0311/9398/9260/files/DESKTOP_2-100_a3b8626b-f366-47c6-94a4-29db165a38dd_1512x.jpg?v=1670025819");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
