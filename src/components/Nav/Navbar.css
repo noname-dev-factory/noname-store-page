@@ -1,16 +1,22 @@
+:root {
+    --main-color: #1f1d1d
+}
+
 .navbar {
     width: 100vw;
-    background: #1f1d1d;
+    background: var(--main-color);
     color: #fff;
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 10px 20px;
+    padding: 10px auto;
     font-size: 1.2rem;
     z-index: 100;
     box-shadow: 0 4px 5px rgb(0, 0, 0, 0.2);
 }
+
 
 .navbar__wrapper {
     width: 90%;
@@ -19,10 +25,11 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-    margin-right: 10px;
 }
 
-.navbar__wrapper>* {
+.navbar__wrapper .navbar__right,
+.navbar__wrapper .navbar__logo,
+.navbar__wrapper .navbar__left {
     flex: 1;
     text-align: center;
 }
@@ -38,4 +45,89 @@
 .links a:hover,
 .navbar__right a:hover {
     box-shadow: -3px 3px 1px #888;
+}
+
+.navbar .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    outline: none;
+    display: none;
+}
+
+.is-active {
+    box-shadow:
+        -3px 3px 1px #888,
+        3px -3px 1px #888;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar .nav-btn {
+        display: block;
+    }
+
+    .navbar .nav-bars-btn {
+        flex: 1;
+        text-align: left;
+    }
+
+    .navbar__right {
+        text-align: right !important;
+    }
+
+    .navbar .navbar__left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        background-color: var(--main-color);
+        transition: 1s;
+        transform: translateY(-100vh);
+    }
+
+    .navbar .links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .navbar .responsive_navLeft {
+        transform: translateY(0);
+    }
+
+    .links a:hover,
+    .navbar__right a:hover {
+        color: #888;
+        box-shadow: none;
+    }
+
+    .is-active {
+        color: #888;
+        box-shadow: none;
+        pointer-events: none;
+    }
+}
+
+@media only screen and (max-width: 649px) {
+    .navbar {
+        font-size: 1em;
+    }
+
+    .navbar .nav-bars-btn {
+        flex: .8;
+    }
+
+    .navbar__right a {
+        padding: 3px;
+    }
 }
