@@ -15,10 +15,18 @@ type Link = {
 };
 
 
-const Links: React.FC<{ links: Link[] }> = ({ links }) => {
+const Links = ({ ...props }) => {
+    const { links, showNav } = props
     return (
         <div className="links">
-            {links.map((link: Link) => <NavLink key={link.label} to={link.href} >{link.label}</NavLink>)}
+            {links.map((link: Link) =>
+                <NavLink
+                    onClick={showNav}
+                    key={link.label}
+                    to={link.href} >
+                    {link.label}
+                </NavLink>
+            )}
         </div>
     )
 };
@@ -26,7 +34,7 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
 const Navbar: React.FC<{}> = () => {
     const navRef = useRef<HTMLElement | null>(null)
 
-    const showNavLeft = () => {
+    const showNav = () => {
         navRef.current?.classList.toggle("responsive_navLeft")
     }
 
@@ -34,16 +42,16 @@ const Navbar: React.FC<{}> = () => {
         <header className="navbar">
             <div className="navbar__wrapper">
                 <button
-                    onClick={showNavLeft}
+                    onClick={showNav}
                     className="nav-btn nav-bars-btn"
                 >
                     <FaBars />
                 </button>
                 <nav ref={navRef} className='navbar__left'>
-                    <Links links={links} />
+                    <Links showNav={showNav} links={links} />
                     <button
                         className="nav-btn nav-close-btn"
-                        onClick={showNavLeft}
+                        onClick={showNav}
                     >
                         <FaTimes />
                     </button>

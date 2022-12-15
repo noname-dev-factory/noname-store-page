@@ -107,12 +107,12 @@
 
     .links a:hover,
     .navbar__right a:hover {
-        color: #888;
+        color: #888 !important;
         box-shadow: none;
     }
 
     .is-active {
-        color: #888;
+        color: #888 !important;
         box-shadow: none;
         pointer-events: none;
     }
