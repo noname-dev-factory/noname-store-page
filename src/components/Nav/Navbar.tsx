@@ -1,8 +1,9 @@
-import React from 'react';
 import './Navbar.css';
 import * as data from './links.json';
 import NavLink from './NavLink'
 import { Link } from 'react-router-dom'
+import { FaBars, FaTimes, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { useRef } from 'react';
 
 
 const linksString = JSON.stringify(data);
@@ -23,19 +24,41 @@ const Links: React.FC<{ links: Link[] }> = ({ links }) => {
 };
 
 const Navbar: React.FC<{}> = () => {
+    const navRef = useRef<HTMLElement | null>(null)
+
+    const showNavLeft = () => {
+        navRef.current?.classList.toggle("responsive_navLeft")
+    }
+
     return (
-        <nav className="navbar">
+        <header className="navbar">
             <div className="navbar__wrapper">
-                <Links links={links} />
+                <button
+                    onClick={showNavLeft}
+                    className="nav-btn nav-bars-btn"
+                >
+                    <FaBars />
+                </button>
+                <nav ref={navRef} className='navbar__left'>
+                    <Links links={links} />
+                    <button
+                        className="nav-btn nav-close-btn"
+                        onClick={showNavLeft}
+                    >
+                        <FaTimes />
+                    </button>
+                </nav>
+
                 <div className="navbar__logo">
                     <Link to="/"><img src="/images/panther.png" alt="noname" width="50" /></Link>
                 </div>
-                <div className="navbar__right">
-                    <a href="#">Login</a>
-                    <a href="#">Carrito</a>
-                </div>
+
+                <nav className="navbar__right">
+                    <a href="#"><FaUser /></a>
+                    <a href="#"><FaShoppingCart /></a>
+                </nav>
             </div>
-        </nav>
+        </header>
     )
 }
 
